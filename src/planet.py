@@ -14,9 +14,6 @@ class Planet:
         self.position = np.asarray(position, dtype=np.float64)
         self.velocity = np.array(velocity, dtype=np.float64)
         self.path = [list(position)]
-        #self.path = [self.position] # Doesn't work
-        
-        #self.net_force = np.empty((3,), dtype=np.float64)
     
     def force(self, other) -> np.ndarray:
         """Gravitational force between itself and another body."""
@@ -37,7 +34,6 @@ class Planet:
         self.velocity += self.net_force * dt / self.mass
         self.position += self.velocity * dt
         self.path.append(list(self.position))
-        #self.path.append(self.position) # Doesn't work
         
     def path_to_array(self) -> None:
         """Converts a 2D list to a 2D array."""
